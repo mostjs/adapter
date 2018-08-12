@@ -2,8 +2,7 @@ import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 
 export interface Port<A> {
   event (value: A): void
-  end (): void 
-  error (e: Error): void
+  close (e?: Error): void
 }
 
 export const createPort = <A> (): [Port<A>, Stream<A>] => {
@@ -18,12 +17,8 @@ export class FanoutPort<A> implements Port<A> {
     this.ports.forEach(p => p.event(a))
   }
 
-  end (): void {
-    this.ports.forEach(p => p.end())
-  }
-
-  error (e: Error): void {
-    this.ports.forEach(p => p.error(e))
+  close (e?: Error): void {
+    this.ports.forEach(p => p.close(e))
   }
 }
 
@@ -55,12 +50,12 @@ export class SinkPort<A> implements Port<A> {
     tryEvent(this.scheduler.currentTime(), a, this.sink)
   }
 
-  end (): void {
-    tryEnd(this.scheduler.currentTime(), this.sink)
-  }
-
-  error (e: Error): void {
-    this.sink.error(this.scheduler.currentTime(), e)
+  close (e?: Error): void {
+    if (e) {
+      this.sink.error(this.scheduler.currentTime(), e)
+    } else {
+      tryEnd(this.scheduler.currentTime(), this.sink)
+    }
   }
 }
 
