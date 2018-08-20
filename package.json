@@ -5,11 +5,16 @@
   "module": "dist/index.mjs",
   "author": "Brian Cavalier <brian@briancavalier.com>",
   "license": "MIT",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c && cpy src/*.js.flow dist/",
+    "typecheck": "tsc --noEmit && flow check"
   },
   "devDependencies": {
+    "cpy-cli": "^2.0.0",
+    "flow-bin": "^0.79.1",
     "rollup": "^0.63.5",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-typescript2": "^0.16.1",

@@ -1,0 +1,9 @@
+// @flow
+import type { Stream } from '@most/types'
+
+export interface Port<-A> {
+  event (value: A): void,
+  close (e?: Error): void
+}
+
+declare export function createPort <A> (): [Port<A>, Stream<A>]
