@@ -3,30 +3,30 @@ import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 export type Port<A> = (event: A) => void
 
 export const createPort = <A> (): [Port<A>, Stream<A>] => {
-  const ports: Port<A>[] = []
-  return [a => broadcast(ports, a), new FanoutPortStream(ports)]
+  const sinks: { sink: Sink<A>, scheduler: Scheduler }[] = []
+  return [a => broadcast(sinks, a), new FanoutPortStream(sinks)]
 }
 
-const broadcast = <A> (ports: Port<A>[], a: A): void =>
-  ports.forEach(port => port(a))
+const broadcast = <A> (sinks: { sink: Sink<A>, scheduler: Scheduler }[], a: A): void =>
+  sinks.forEach(({ sink, scheduler }) => tryEvent(scheduler.currentTime(), a, sink))
 
 export class FanoutPortStream<A> {
-  constructor (private readonly ports: Port<A>[]) {}
+  constructor (private readonly sinks: { sink: Sink<A>, scheduler: Scheduler }[]) {}
 
   run (sink: Sink<A>, scheduler: Scheduler): Disposable {
-    const s = (a: A) => tryEvent(scheduler.currentTime(), a, sink)
-    this.ports.push(s)
-    return new RemovePortDisposable(s, this.ports)
+    const s = { sink, scheduler }
+    this.sinks.push(s)
+    return new RemovePortDisposable(s, this.sinks)
   }
 }
 
 export class RemovePortDisposable<A> implements Disposable {
-  constructor (private readonly port: Port<A>, private readonly ports: Port<A>[]) {}
+  constructor (private readonly sink: { sink: Sink<A>, scheduler: Scheduler }, private readonly sinks: { sink: Sink<A>, scheduler: Scheduler }[]) {}
 
   dispose () {
-    const i = this.ports.indexOf(this.port)
+    const i = this.sinks.indexOf(this.sink)
     if(i >= 0) {
-      this.ports.splice(i, 1)
+      this.sinks.splice(i, 1)
     }
   }
 }
