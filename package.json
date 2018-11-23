@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "rollup -c && cpy src/*.js.flow dist/",
-    "typecheck": "tsc --noEmit && flow check"
+    "typecheck": "tsc --noEmit && flow check",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",
