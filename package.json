@@ -1,5 +1,5 @@
 {
-  "name": "@briancavalier/most-port",
+  "name": "@briancavalier/most-adapter",
   "version": "1.0.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -14,11 +14,11 @@
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",
-    "flow-bin": "^0.79.1",
-    "rollup": "^0.63.5",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-typescript2": "^0.16.1",
-    "typescript": "^3.0.1"
+    "flow-bin": "^0.86.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript2": "^0.18.0",
+    "typescript": "^3.1.6"
   },
   "dependencies": {
     "@most/types": "^1.0.1"
