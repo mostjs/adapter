@@ -6,16 +6,16 @@ Most-adapter provides a disciplined imperative API for getting external data int
 
 ## API
 
-### Adapter
+### Adapter&lt;A, B&gt;
 
 ```js
-type Adapter<A, B = A> = [(event: A) => void, Stream<B>]
+type Adapter<A, B> = [(event: A) => void, Stream<B>]
 ```
 
 An adapter is an entangled pair of an event stream, and a function to induce
 (cause) events in that stream.
 
-### createAdapter :: () &rarr; Adapter<A>
+### createAdapter :: () &rarr; Adapter&lt;A, A&gt;
 
 Create an Adapter.
 
