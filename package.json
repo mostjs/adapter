@@ -15,11 +15,11 @@
   },
   "devDependencies": {
     "cpy-cli": "^2.0.0",
-    "flow-bin": "^0.86.0",
-    "rollup": "^0.67.3",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-typescript2": "^0.18.0",
-    "typescript": "^3.1.6"
+    "flow-bin": "^0.89.0",
+    "rollup": "^1.0.1",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.18.1",
+    "typescript": "^3.2.2"
   },
   "dependencies": {
     "@most/types": "^1.0.1"
