@@ -1,8 +1,8 @@
 import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 
-export type Adapter<A, B = A> = [(event: A) => void, Stream<B>]
+export type Adapter<A, B> = [(event: A) => void, Stream<B>]
 
-export const createAdapter = <A> (): Adapter<A> => {
+export const createAdapter = <A> (): Adapter<A, A> => {
   const sinks: { sink: Sink<A>, scheduler: Scheduler }[] = []
   return [a => broadcast(sinks, a), new FanoutPortStream(sinks)]
 }
@@ -38,4 +38,3 @@ function tryEvent <A> (t: Time, a: A, sink: Sink<A>) {
     sink.error(t, e)
   }
 }
-

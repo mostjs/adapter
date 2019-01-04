@@ -1,4 +1,4 @@
-# most-adapter
+# @most/adapter
 
 Mostjs emphasizes declarative event streams, which have many advantages, such as helping to avoid race conditions.  However, getting data into a mostjs event stream graph from 3rd party libraries that weren't designed with that approach in mind can be tricky.  Often, trying to force a library into that model leads to a messy solution.
 
@@ -25,4 +25,3 @@ const [induce, events] = createAdapter<string>()
 induce('hello') // cause an event with value "hello" to occur in events
 induce('world') // cause an event with value "world" to occur in events
 ```
-
