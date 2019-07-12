@@ -1,7 +1,7 @@
 import { tap, take, runEffects } from "@most/core";
 import { newDefaultScheduler } from "@most/scheduler";
 import { describe, it } from "mocha";
-import assert from "power-assert";
+import { assert } from "@briancavalier/assert";
 import { createAdapter } from "./index";
 import { fake } from "sinon";
 

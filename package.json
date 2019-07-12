@@ -15,15 +15,14 @@
     "test:unit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ./node_modules/.bin/mocha -r ts-node/register src/*.test.ts"
   },
   "devDependencies": {
+    "@briancavalier/assert": "^3.4.0",
     "@most/core": "^1.5.0",
     "@most/scheduler": "^1.2.3",
     "@types/mocha": "^5.2.7",
-    "@types/power-assert": "^1.5.0",
     "@types/sinon": "^7.0.13",
     "cpy-cli": "^2.0.0",
     "flow-bin": "^0.89.0",
     "mocha": "^6.1.4",
-    "power-assert": "^1.6.1",
     "rollup": "^1.0.1",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-typescript2": "^0.18.1",
