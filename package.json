@@ -12,7 +12,7 @@
     "build": "rollup -c && cpy src/*.js.flow dist/",
     "typecheck": "tsc --noEmit && flow check",
     "prepare": "yarn build",
-    "test:unit": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha"
+    "test:unit": "TS_NODE_PROJECT=test/tsconfig.json mocha"
   },
   "devDependencies": {
     "@briancavalier/assert": "^3.4.0",
