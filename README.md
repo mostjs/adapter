@@ -24,8 +24,7 @@ yarn add @most/adapter
 type Adapter<A, B> = [(event: A) => void, Stream<B>]
 ```
 
-An adapter is an entangled pair of an event stream, and a function to induce
-(cause) events in that stream.
+An adapter is an entangled pair of an event stream, and a function to induce (cause) events in that stream.
 
 ### createAdapter :: () → Adapter<A, A>
 

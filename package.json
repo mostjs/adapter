@@ -10,9 +10,9 @@
   ],
   "scripts": {
     "build": "rollup -c && cpy src/*.js.flow dist/",
-    "typecheck": "tsc --noEmit && flow check",
     "prepare": "yarn build",
-    "test:unit": "TS_NODE_PROJECT=test/tsconfig.json mocha"
+    "test:unit": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha",
+    "test": "yarn test:unit && flow check"
   },
   "devDependencies": {
     "@briancavalier/assert": "^3.4.0",
@@ -21,6 +21,7 @@
     "@types/mocha": "^5.2.7",
     "@types/sinon": "^7.0.13",
     "cpy-cli": "^2.0.0",
+    "cross-env": "^5.2.0",
     "flow-bin": "^0.89.0",
     "mocha": "^6.1.4",
     "rollup": "^1.0.1",
@@ -28,7 +29,7 @@
     "rollup-plugin-typescript2": "^0.18.1",
     "sinon": "^7.3.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "@most/types": "^1.0.1"
