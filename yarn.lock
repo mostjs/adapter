@@ -42,10 +42,6 @@
     "@most/prelude" "^1.7.3"
     "@most/types" "^1.0.2"
 
-"@most/types@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@most/types/-/types-1.0.1.tgz#8691580d1f3bf569b91d48f6688be9ad26dfc86c"
-
 "@most/types@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@most/types/-/types-1.0.2.tgz#a272c919a3dafe942bd02d63402f0548593af870"

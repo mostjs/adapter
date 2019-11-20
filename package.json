@@ -32,6 +32,6 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "@most/types": "^1.0.1"
+    "@most/types": "^1.0.2"
   }
 }
