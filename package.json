@@ -23,7 +23,7 @@
     "cpy-cli": "^2.0.0",
     "cross-env": "^5.2.0",
     "flow-bin": "^0.89.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.2",
     "rollup": "^1.0.1",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-typescript2": "^0.18.1",
