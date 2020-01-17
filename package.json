@@ -29,7 +29,7 @@
     "rollup-plugin-typescript2": "^0.18.1",
     "sinon": "^7.5.0",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "@most/types": "^1.0.2"
