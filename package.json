@@ -22,7 +22,7 @@
     "@types/sinon": "^7.5.1",
     "cpy-cli": "^2.0.0",
     "cross-env": "^5.2.0",
-    "flow-bin": "^0.89.0",
+    "flow-bin": "^0.117.0",
     "mocha": "^6.2.2",
     "rollup": "^1.31.0",
     "rollup-plugin-node-resolve": "^4.2.4",
