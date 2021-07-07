@@ -18,7 +18,7 @@
     "@briancavalier/assert": "^3.4.0",
     "@most/core": "^1.5.0",
     "@most/scheduler": "^1.2.3",
-    "@types/mocha": "^5.2.7",
+    "@types/mocha": "^8.2.3",
     "@types/sinon": "^7.5.2",
     "cpy-cli": "^2.0.0",
     "cross-env": "^5.2.0",
