@@ -24,7 +24,7 @@
     "cross-env": "^5.2.0",
     "flow-bin": "^0.89.0",
     "mocha": "^6.2.2",
-    "rollup": "^1.32.0",
+    "rollup": "^2.53.3",
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-typescript2": "^0.18.1",
     "sinon": "^7.5.0",
