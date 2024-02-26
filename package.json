@@ -1,6 +1,6 @@
 {
   "name": "@most/adapter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "author": "Brian Cavalier <brian@briancavalier.com>",

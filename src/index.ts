@@ -1,14 +1,25 @@
 import { Disposable, Scheduler, Sink, Stream, Time } from '@most/types'
 
-export type Adapter<A, B> = [(event: A) => void, Stream<B>]
+export type Adapter<A, B> = [(event: A) => void, Stream<B>, (e: Error) => void, () => void]
 
 export const createAdapter = <A> (): Adapter<A, A> => {
   const sinks: { sink: Sink<A>, scheduler: Scheduler }[] = []
-  return [a => broadcast(sinks, a), new FanoutPortStream(sinks)]
+  return [
+    a => broadcast(sinks, a),
+    new FanoutPortStream(sinks),
+    broadcastError(sinks),
+    broadcastEnd(sinks)
+  ]
 }
 
 const broadcast = <A> (sinks: { sink: Sink<A>, scheduler: Scheduler }[], a: A): void =>
   sinks.slice().forEach(({ sink, scheduler }) => tryEvent(scheduler.currentTime(), a, sink))
+
+const broadcastError = <A> (sinks: { sink: Sink<A>, scheduler: Scheduler }[]) => (e: Error) : void =>
+  sinks.slice().forEach(({ sink, scheduler }) => sink.error(scheduler.currentTime(), e))
+
+const broadcastEnd = <A> (sinks: { sink: Sink<A>, scheduler: Scheduler }[]) => () : void =>
+  sinks.slice().forEach(({ sink, scheduler }) => sink.end(scheduler.currentTime()))
 
 export class FanoutPortStream<A> {
   constructor (private readonly sinks: { sink: Sink<A>, scheduler: Scheduler }[]) {}
